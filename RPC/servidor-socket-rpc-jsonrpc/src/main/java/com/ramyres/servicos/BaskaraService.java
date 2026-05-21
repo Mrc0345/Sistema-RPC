@@ -2,7 +2,7 @@ package com.ramyres.servicos;
 
 public class BaskaraService implements ServiceInterface {
 
-    private double[] CalcularRaizes(double a, double b, double c) {
+   private double[] CalcularRaizes(double a, double b, double c) {
         double delta = b * b - 4 * a * c;
         if (delta < 0) {
             return new double[] {};
@@ -27,6 +27,11 @@ public class BaskaraService implements ServiceInterface {
         double b = Double.parseDouble(params[1]);
         double c = Double.parseDouble(params[2]);
         
+    if (a == 0) {
+    throw new IllegalArgumentException("O coeficiente a nao pode ser zero");
+}
+
+
         double[] resultados = CalcularRaizes(a, b, c);
         
         String[] resposta = new String[resultados.length];
